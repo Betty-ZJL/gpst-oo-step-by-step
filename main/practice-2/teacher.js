@@ -5,7 +5,13 @@ class Teacher extends Person {
     constructor(name, age, clazzes, id) {
         super(name, age);
         this.clazzes = clazzes;
-        this.id = '00' + parseInt(Math.random() * 1000 + 1);
+        let teacherProto = Object.getPrototypeOf(this);
+        if (teacherProto.hasOwnProperty('nextID')) {
+            this.id = '' + teacherProto.nextID++;
+        } else {
+            this.id = '' + 1;
+            teacherProto['nextID'] = 2;
+        }
     }
 
     introduce() {

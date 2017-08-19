@@ -7,7 +7,7 @@ class Student extends Person {
         this.clazz = clazz;
         let studentProto = Object.getPrototypeOf(this);
         if (studentProto.hasOwnProperty('nextID')) {
-            this.id ='' + clazz + studentProto.nextID++;
+            this.id = '' + clazz + studentProto.nextID++;
         } else {
             this.id = '' + clazz + 1;
             studentProto['nextID'] = 2;
